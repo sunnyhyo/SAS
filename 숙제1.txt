@@ -1,0 +1,12 @@
+data ch4_problem1;
+mu=1; var=1; sd=sqrt(var);
+do i=1 to 3000;
+x=POISSON(mu,sd);
+y=RANNOR(0)*sd+mu;
+output;
+end;
+run;
+proc gchart data=ch4_problem1;
+vbar x/levels=15;
+vbar y/levels=15;
+run;
